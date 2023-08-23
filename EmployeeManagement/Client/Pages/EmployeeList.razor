@@ -3,7 +3,10 @@
 @inject IJSRuntime jsRuntime
 @inject NavigationManager manager
 
-
+ <h2>Employee List</h2>
+    <div class="form-group">
+        <a class="btn btn-success" href="employees/create">Create New Employee</a>
+    </div>
 @if (employees == null)
 {
     <div class="text-center">
@@ -18,10 +21,7 @@ else if (employees.Count == 0)
 }
 else
 {
-    <h2>Employee List</h2>
-    <div class="form-group">
-        <a class="btn btn-success" href="employees/create">Create New Employee</a>
-    </div>
+   
     <br/>
     <div class="row">
         @foreach (var employee in employees)
