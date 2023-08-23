@@ -1,0 +1,105 @@
+﻿<EditForm Model="employee" OnValidSubmit="OnValidSubmit">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <InputText class="form-control" id="name" @bind-Value="@employee.Name" />
+                </div>
+                <div class="form-group">
+                    <label for="JoinDate">Join Date</label>
+                    <InputDate class="form-control" id="JoinDate" @bind-Value="@employee.JoinDate" />
+                </div>
+                <div class="form-check">
+                    <InputCheckbox id="IsWorking" @bind-Value="@employee.IsWorking" />
+                    <label for="IsWorking">Working?</label>
+                </div>
+                <div class="form-control-file my-2">
+                    @if (string.IsNullOrEmpty(employee.ImageUrl))
+                    {
+                        <img src="/image/noImage.png" height="80" width="80" />
+                    }
+                    else
+                    {
+                        <img src="@employee.ImageUrl" height="80" width="80" />
+                    }
+                    <InputFile OnChange="OnFileChange" class="form-control" accept="image/*" />
+                </div>
+
+                <div class="form-group">
+                    <button class="btn btn-success" type="submit">
+                        @if (employee.Id == 0)
+                        {
+                            <span>Create</span>
+                        }
+                        else
+                        {
+                            <span>Update</span>
+                        }
+                    </button>
+                    <button type="button" class="btn btn-info" @onclick="Clear">Clear</button>
+                </div>
+                <div class="form-group">
+                    <br />
+                    <a class="btn btn-secondary" href="employees">Back To Employee List</a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <button @onclick="@(()=>employee.Experiences.Add(new Experience()))" type="button" class="btn btn-secondary">Add Experience</button>
+                </div>
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Sl.</th>
+                            <th>Position Name</th>
+                            <th>Company Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (int i = 0; i < employee.Experiences.Count; i++)
+                        {
+                            var index = i;
+                            var add = employee.Experiences[i];
+                            <tr>
+                                <td>@(i + 1)</td>
+                                <td><InputText class="form-control" id="name" @bind-Value="@add.PositionName" /></td>
+                                <td>
+                                    <InputText class="form-control" id="name" @bind-Value="@add.CompanyName" />
+                                </td>
+                                <td>
+                                    <button @onclick="@(()=>employee.Experiences.RemoveAt(index))" type="button" class="btn btn-danger btn-sm">Remove</button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div>
+            </div>
+
+        </div>
+    </div>
+</EditForm>
+
+@code {
+    [Parameter]
+    public Employee employee { get; set; }
+    [Parameter]
+    public EventCallback OnValidSubmit { get; set; }
+
+
+    async Task OnFileChange(InputFileChangeEventArgs e)
+    {
+        var format = e.File.ContentType;
+        var resizedImage = await e.File.RequestImageFileAsync(format, 1060, 1060);
+        var buffer = new byte[resizedImage.Size];
+        await resizedImage.OpenReadStream().ReadAsync(buffer);
+        employee.ImageUrl = $"data:{format};base64,{Convert.ToBase64String(buffer)}";
+    }
+
+    private void Clear()
+    {
+        employee = new Employee();
+    }
+}

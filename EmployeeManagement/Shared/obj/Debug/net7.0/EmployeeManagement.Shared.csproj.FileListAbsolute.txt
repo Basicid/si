@@ -1,0 +1,12 @@
+E:\Blazor\xm\EmployeeManagementSLN\EmployeeManagement\Shared\bin\Debug\net7.0\EmployeeManagement.Shared.deps.json
+E:\Blazor\xm\EmployeeManagementSLN\EmployeeManagement\Shared\bin\Debug\net7.0\EmployeeManagement.Shared.dll
+E:\Blazor\xm\EmployeeManagementSLN\EmployeeManagement\Shared\bin\Debug\net7.0\EmployeeManagement.Shared.pdb
+E:\Blazor\xm\EmployeeManagementSLN\EmployeeManagement\Shared\obj\Debug\net7.0\EmployeeManagement.Shared.csproj.AssemblyReference.cache
+E:\Blazor\xm\EmployeeManagementSLN\EmployeeManagement\Shared\obj\Debug\net7.0\EmployeeManagement.Shared.GeneratedMSBuildEditorConfig.editorconfig
+E:\Blazor\xm\EmployeeManagementSLN\EmployeeManagement\Shared\obj\Debug\net7.0\EmployeeManagement.Shared.AssemblyInfoInputs.cache
+E:\Blazor\xm\EmployeeManagementSLN\EmployeeManagement\Shared\obj\Debug\net7.0\EmployeeManagement.Shared.AssemblyInfo.cs
+E:\Blazor\xm\EmployeeManagementSLN\EmployeeManagement\Shared\obj\Debug\net7.0\EmployeeManagement.Shared.csproj.CoreCompileInputs.cache
+E:\Blazor\xm\EmployeeManagementSLN\EmployeeManagement\Shared\obj\Debug\net7.0\EmployeeManagement.Shared.dll
+E:\Blazor\xm\EmployeeManagementSLN\EmployeeManagement\Shared\obj\Debug\net7.0\refint\EmployeeManagement.Shared.dll
+E:\Blazor\xm\EmployeeManagementSLN\EmployeeManagement\Shared\obj\Debug\net7.0\EmployeeManagement.Shared.pdb
+E:\Blazor\xm\EmployeeManagementSLN\EmployeeManagement\Shared\obj\Debug\net7.0\ref\EmployeeManagement.Shared.dll
